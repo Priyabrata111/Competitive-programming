@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+void removeAllOccurrencesOfChar(char input[], char c) {
+    // Write your code here
+    int i=0,j,n=strlen(input);
+    char str[n];
+    int index=0;
+    int count=0;
+    
+    while(i<n)
+    {
+        if(input[i]!=c)
+        {
+            str[index]=input[i];
+            index++;
+        }
+        
+       i++; 
+        
+        
+    }
+    
+    for(i=0;i<=index;i++)
+        input[i]=str[i];
+    
+    input[i-1]='\0';
+    
+}
+
+
+
+int main() {
+    int size = 1e6;
+    char str[size];
+    cin.getline(str, size);
+    char c;
+    cin >> c;
+    removeAllOccurrencesOfChar(str, c);
+    cout << str;
+}
