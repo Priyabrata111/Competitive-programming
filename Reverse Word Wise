@@ -1,0 +1,60 @@
+#include<iostream>
+#include<cstring>
+#include<string>
+#include<algorithm>
+using namespace std;
+
+void reverseStringWordWise(char *input)
+{
+    int i,j,n=strlen(input);
+    for(i=0;i<n/2;i++)
+    {
+        char temp=input[i];
+        input[i]=input[n-1-i];
+        input[n-1-i]=temp;
+    }
+    
+    
+   
+    int pos=0,count=0;
+    char str[strlen(input)+1];
+    
+    strcat(input," ");
+    
+    
+    for(int i=0;i<strlen(input);i++)
+    {
+       if(input[i]==' ' && input[i+1]!=' ')
+       {
+           for(int j=i;j>=pos;j--)
+           {
+              str[count]=input[j];
+               count++;
+              
+              
+           }
+           pos=i+1;
+          
+       }
+        
+    }
+  for(int i=1;i<strlen(input);i++)
+  {
+      input[i-1]=str[i];
+  }
+    
+    
+    
+}
+
+
+int main() {
+    char input[1000];
+    cin.getline(input, 1000);
+    reverseStringWordWise(input);
+    cout << input << endl;
+}
+
+
+
+
