@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+
+
+int main(){
+
+    int i,j,k,l,n;
+    cin>>n;
+    
+    for(i=1;i<=n-n/2;i++)
+    {
+        for(j=1;j<=n-n/2-i;j++)
+            cout<<" ";
+        for(k=1;k<=i;k++)
+            cout<<"*";
+        for(l=1;l<i;l++)
+            cout<<"*";
+        
+        cout<<endl;
+    }
+    
+    n=n/2;
+    
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+            cout<<" ";
+        for(k=1;k<=n-i+1;k++)
+            cout<<"*";
+        for(l=1;l<=n-i;l++)
+            cout<<"*";
+        
+        cout<<endl;
+        
+    }
+    
+    
+}
+
+
