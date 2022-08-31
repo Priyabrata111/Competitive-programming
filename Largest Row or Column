@@ -1,0 +1,99 @@
+#include <iostream>
+using namespace std;
+
+void findLargest(int **input, int nRows, int mCols)
+{
+    //Write your code here
+    
+    int n=nRows,m=mCols;
+    if(n==0||m==0)
+    {
+        cout<<"row 0 -2147483648";
+    }
+    else
+    {
+    
+    int i,j,sumr[n]={0},sumc[m]={0};
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+            sumr[i]=sumr[i]+input[i][j];
+            
+    }
+    
+    
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+            sumc[i]=sumc[i]+input[j][i];
+     
+    }
+    int maxr=sumr[0];
+    for(i=0;i<n;i++)
+    {
+        if(sumr[i]>maxr)
+            maxr=sumr[i];
+    }
+    int maxc=sumc[0];
+    for(i=0;i<m;i++)
+    {
+        if(sumc[i]>maxc)
+            maxc=sumc[i];
+    }
+    
+    if(maxr>=maxc)
+    {
+        for(i=0;i<n;i++)
+        {
+            if(sumr[i]==maxr)
+            {
+                cout<<"row "<<i<<" "<<maxr;
+                break;
+            }
+        }
+        
+        
+    }else
+    {
+     for(i=0;i<m;i++)
+     {
+         if(sumc[i]==maxc)
+         {
+             cout<<"column "<<i<<" "<<maxc;
+             break;
+         }
+     }
+        
+  
+        
+    }
+  
+    
+    }
+}
+
+
+
+int main()
+{
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int row, col;
+		cin >> row >> col;
+
+		int **input = new int *[row];
+		for (int i = 0; i < row; i++)
+		{
+			input[i] = new int[col];
+			for (int j = 0; j < col; j++)
+			{
+				cin >> input[i][j];
+			}
+		}
+
+		findLargest(input, row, col);
+		cout << endl;
+	}
+}
