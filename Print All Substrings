@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+void printSubstrings(char input[]) {
+    
+    int i,j,n=strlen(input);
+    string str;
+    
+    for(i=0;i<n;i++)
+    {   
+        str="";
+        
+        for(j=i;j<n;j++)
+        {
+            str=str+input[j];
+            cout<<str<<endl;
+            
+        }
+    }
+}
+
+int main() {
+    int size = 1e6;
+    char str[size];
+    cin >> str;
+    printSubstrings(str);
+}
