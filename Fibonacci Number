@@ -1,0 +1,16 @@
+#include<cmath>
+bool checkMember(int n){
+
+    int up=(5*n*n)+4;
+    int low=(5*n*n)-4;
+    
+    int upr=sqrt(up);
+    int lowr=sqrt(low);
+    
+    if((upr*upr==up)||(lowr*lowr==low))
+        return true;
+    else
+        return false;
+
+
+}
