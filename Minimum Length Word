@@ -1,0 +1,63 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<cstring>
+
+using namespace std;
+
+void minLengthWord(char input[], char output[]){
+    
+		// Write your code here
+    unordered_map<string,int>pt;
+    
+    int n=strlen(input);
+    
+    int count=0;
+    string str="";
+    int p[1000]={0};
+    int t=0;
+    
+    strcat(input," ");
+    for(int i=0;i<n+1;i++)
+    {
+        if(input[i]==' ')
+        {
+            p[t]=count;
+            count=0;
+            str="";
+            t++;
+        }
+        else
+        { str=str+input[i];
+            count++;
+        }
+    }
+    int min=p[0];
+   for(int i=0;i<t;i++)
+   {//cout<<p[i]<<" ";
+    if(min>p[i])
+     min=p[i];
+    }
+    int temp=0;
+    for(int i=0;i<t;i++)
+    {
+        if(min==p[i])
+        {
+            break;
+        }else
+        {
+            temp+=p[i];
+            temp++;
+        }
+            
+    }
+    
+    for(int i=0;i<min;i++)
+    {
+        output[i]=input[temp++];
+    }
+   
+    
+    
+  
+}
